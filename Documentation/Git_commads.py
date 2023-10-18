@@ -26,8 +26,13 @@ ignore=[
         'HighScores.json',
         'UserSetting.json',
         'GameSharing/',
-        '__pycache__/'
-        , 'Git_commads.py'
+        '__pycache__/',
+        'Documentation/Git_commads.py',
+        'MultiInvaders.spec',
+        'MultiInvaders.zip',
+        'MultiInvaders_installer.bat',
+        'build/',
+        'dist/'
         ]
 
 # set game folder as working directory in python
@@ -63,3 +68,4 @@ def commit_a(comment, file = None):
     
 commit_a('Add Git_commads to .gitignore')
 # git commit  -a -m "Add Git_commads to .gitignore"
+commit_a('Add Installer files and folders to .gitignore')

@@ -2,4 +2,9 @@ HighScores.json
 UserSetting.json
 GameSharing/
 __pycache__/
-Git_commads.py
+Documentation/Git_commads.py
+MultiInvaders.spec
+MultiInvaders.zip
+MultiInvaders_installer.bat
+build/
+dist/
