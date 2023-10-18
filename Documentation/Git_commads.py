@@ -38,6 +38,7 @@ ignore=[
 # set game folder as working directory in python
 with open('.gitignore ', 'w') as f :
     for i in ignore:
+        print(i)
         f.write(i + "\n") 
  
     
@@ -70,3 +71,10 @@ commit_a('Add Git_commads to .gitignore')
 # git commit  -a -m "Add Git_commads to .gitignore"
 commit_a('Add Installer files and folders to .gitignore')
 # git commit  -a -m "Add Installer files and folders to .gitignore"
+
+# Git_commads is being tracked, maybe because it was added before ingnored 
+file = 'Documentation/Git_commads.py'
+print(f'git rm {file}')
+# 2nd step
+commit(f'delete file {file}', file = file)
+#
