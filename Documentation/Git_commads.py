@@ -69,3 +69,4 @@ def commit_a(comment, file = None):
 commit_a('Add Git_commads to .gitignore')
 # git commit  -a -m "Add Git_commads to .gitignore"
 commit_a('Add Installer files and folders to .gitignore')
+# git commit  -a -m "Add Installer files and folders to .gitignore"
