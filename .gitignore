@@ -3,6 +3,7 @@ UserSetting.json
 GameSharing/
 __pycache__/
 Documentation/source_images/
+Documentation/Git/
 Documentation/temp_images/
 MultiInvaders.spec
 MultiInvaders.zip
