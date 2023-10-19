@@ -32,7 +32,7 @@ If GUI is packaged in a folder, then:
     => [name].zip in the folder of the main script
 
 5) Copy zip file in folder reserved for sharing
-    
+
 6) Copy and extract zip file in desktop for testing
 
 
@@ -41,8 +41,8 @@ If GUI is packaged in a folder, then:
 
 import os
 import winshell
-import shutil   
-from Constants import c 
+import shutil
+from Constants import c
 
 # Constants
 # package path
@@ -54,8 +54,6 @@ icon_file = os.path.join(c('images_path'), 'favicon.ico')
 #
 path_env = 'SET YOUR PATH TO ENV.'  # i.e `C:\Users\a_user\.virtualenvs\my_project`
 
-
-
 # %% [PYINSTALLER]
 
 def activate_env(path_env):
@@ -66,7 +64,6 @@ def activate_env(path_env):
     """
     activate = os.path.join(path_env, 'Scripts/activate.bat')
     return activate
-
 
 def pyinstall_bat(
         script, path, path_env,
@@ -153,7 +150,7 @@ def install_vbs():
         f.write('Dim strArgs\n')
         f.write(f'strArgs = "cmd /c {app}"{chr(10)}')
         f.write('oShell.Run strArgs, 0, false')
-        
+
 def create_shortcut( target, place='desktop', name=None, icon_file=None):
     """Create a shortcut (.lnk file) to a file or folder.
 
@@ -165,36 +162,36 @@ def create_shortcut( target, place='desktop', name=None, icon_file=None):
     """
     if name is None:
         name = os.path.basename(target).split('.')[0] # file
-        
+
     #### shortcut
     if place == 'desktop':
         where = winshell.desktop()
     else:
-        where = place 
- 
+        where = place
+
     link_path = os.path.join(where, f'{name}.lnk')
-    target_path = os.path.abspath(target)  
-    
+    target_path = os.path.abspath(target)
+
     if os.path.exists(target_path):
         with winshell.shortcut(link_path) as shortcut:
             shortcut.path = target_path
             if icon_file is not None:
-                shortcut.icon_location = icon_file,0 
+                shortcut.icon_location = icon_file,0
             shortcut.description = f"Shortcut to {name}"
             shortcut.working_directory = os.path.dirname(target_path)
     else:
         raise FileNotFoundError(f"Target file '{target_path}' does not exist")
-        
+
 def first_run_setup(root, splash):
     """Actions taking place when the game is run for the first time by the user.
-    
-    This function creates a shorcut in user's computer, the `config.txt` file 
+
+    This function creates a shorcut in user's computer, the `config.txt` file
     and displays the splash window.
     The shorcut can be then moved by the user to a more convinient place.
     These actions take place only during the first run by the user.
     Thus, it is to be called only when the game runs from the executable.
     This function is meant to be called in the main.py of the game.
-    
+
     Returns:
         True, if it is the first time that the game is run from the executable
         False, otherwise.
@@ -203,20 +200,20 @@ def first_run_setup(root, splash):
     # by checking if the `config.txt` file exists.
     first_time = False
     config = os.path.join(root, 'config.txt')
-    if not os.path.exists(config): # if it does not exist 
-        # => first_time = true 
+    if not os.path.exists(config): # if it does not exist
+        # => first_time = true
         first_time = True
         # => create a shortcut to the executable
         app = os.path.abspath(os.path.join(root, f'{c("name")}.exe'))
         icon_file = os.path.join(c('ico_path'), 'favicon.ico' )
         create_shortcut( app # target
-                        , place = os.path.dirname(root) # one level up from exe file 
-                        , name  = c('name') 
+                        , place = os.path.dirname(root) # one level up from exe file
+                        , name  = c('name')
                         , icon_file =  icon_file)
-        # = > create configuration file  
+        # = > create configuration file
         with open(config, 'w') as f:
             f.write(f'Shorcut already created in: {os.path.dirname(root)}')
-        
+
         splash()
         # sys.exit() # did not work here, exits before splash is closed by the user
         return first_time
@@ -224,17 +221,17 @@ def first_run_setup(root, splash):
 
 # %% [RUNNING - PACKAGING]
 if (__name__ == '__main__'):
-    
+
 
     working_directory = os.path.dirname(os.path.abspath("__file__"))
     sharing_path = os.path.join(working_directory, 'GameSharing')
-    desktop_path = winshell.desktop() 
+    desktop_path = winshell.desktop()
     testing_path = os.path.join(desktop_path, 'Testing')
-    
-    
+
+
     def copy_zip_to(dst):
         """copy in a different location for testing or sharing.
-        
+
         dst (str) : path to copy
         """
         home_path = os.path.dirname(os.path.abspath("__file__"))
@@ -243,28 +240,28 @@ if (__name__ == '__main__'):
         if os.path.exists(zip_file):
             shutil.copy(zip_file ,dst)
             print(f'zip file copied to: {dst}')
-            
+
         else:
             print('zip does not exist')
-        
-    """    
+
+    """
     copy_zip_to(desktop_path)
     copy_zip_to(testing_path)
     copy_zip_to(sharing_path)
     """
-        
+
     def unpacking_zip(location):
-        """unpackage the zipped `exe` file and folders for testing."""        
+        """unpackage the zipped `exe` file and folders for testing."""
         from zipfile import ZipFile
-        destination = os.path.join(location, c('name')) 
+        destination = os.path.join(location, c('name'))
         zip_file = os.path.join(location, f"{c('name')}.zip")
-        
-        with ZipFile(zip_file, 'r') as f: 
+
+        with ZipFile(zip_file, 'r') as f:
             f.extractall(path=destination)
-            
+
     """
     unpacking_zip(testing_path)
-    """ 
+    """
 
     def del_installations():
         """Delete all information of past installers."""
@@ -293,23 +290,36 @@ if (__name__ == '__main__'):
             print('\nThe folders and files were deleted.')
         else:
             print('\nNo file was deleted.')
-            
-        
+
+    def slim_it(path):
+        """Delete unnecessary local data from babel before zipping."""
+
+        keep = "en.dat  en_001.dat  en_US.dat  en_US_POSIX.dat  root.dat"
+        keep = keep.split()
+
+        babel = os.path.join(path, 'dist', c('name'), 'babel', 'locale-data')
+        # print(os.listdir(babel))
+        for file in os.listdir(babel):
+            if file not in keep:
+                full_path = os.path.join(babel, file)
+                os.remove(full_path, dir_fd=None)
+
+
     def delete_from(location):
         """Delete copied zip, unzipped folder, and shorcuts from `location`."""
         # print(winshell.desktop())
         # location = winshell.desktop()
         zip_file = os.path.join(location, f"{c('name')}.zip")
         folder =  os.path.join(location, c('name'))
-        shortcut = os.path.join(location, f"{c('name')}.lnk") 
-        
+        shortcut = os.path.join(location, f"{c('name')}.lnk")
+
         # To remove folders, use shutil.rmtree
         if os.path.exists(folder):
             shutil.rmtree(folder)
             print(f'folder deleted: {folder}')
         else:
             print(f'folder does not exit: {folder}')
-            
+
         # To remove files, use os.remove
         if os.path.exists(zip_file):
             os.remove(zip_file, dir_fd=None)
@@ -321,14 +331,15 @@ if (__name__ == '__main__'):
             print(f'file deleted: {shortcut}')
         else:
             print(f'file does not exit: {shortcut}')
-    
-    #### RUNNING 
-    
+
+
     # PERSONAL DATA
     from my_scripts import my_env
     env = 'Multiplications'
     path_env = my_env(env)
-    
+
+    #### RUNNING
+
     """
     delete_from(desktop_path)
     delete_from(testing_path)
@@ -343,18 +354,20 @@ if (__name__ == '__main__'):
         run=True)
 
     # Manually check whether the installation worked
- 
+
     # if installation has been succsseful then proceed
     if not c('onefile'):
+
         install_vbs()
         # zip to share
+        slim_it(path) # clean unnesseray files
         to_zip = os.path.join(path, 'dist')
         shutil.make_archive(c('name'), 'zip',  to_zip)
-        
+
         # To desktop
         copy_zip_to(testing_path)
         unpacking_zip(testing_path)
-        
+
         # For sharing
         copy_zip_to(dst = 'GameSharing')
-    
+

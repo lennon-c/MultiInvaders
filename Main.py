@@ -14,7 +14,7 @@ from HighScoresScenes import HighScores
 import sys
 
 from babel.dates import format_timedelta
-import babel.numbers
+import babel.numbers # this is not used by me, but requiered by babel
 
 
 #### FROM THE EXECUTABLE
