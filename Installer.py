@@ -54,10 +54,6 @@ icon_file = os.path.join(c('images_path'), 'favicon.ico')
 #
 path_env = 'SET YOUR PATH TO ENV.'  # i.e `C:\Users\a_user\.virtualenvs\my_project`
 
-# PERSONAL DATA
-from my_scripts import my_env
-env = 'Multiplications'
-path_env = my_env(env)
 
 
 # %% [PYINSTALLER]
@@ -229,6 +225,7 @@ def first_run_setup(root, splash):
 # %% [RUNNING - PACKAGING]
 if (__name__ == '__main__'):
     
+
     working_directory = os.path.dirname(os.path.abspath("__file__"))
     sharing_path = os.path.join(working_directory, 'GameSharing')
     desktop_path = winshell.desktop() 
@@ -326,6 +323,12 @@ if (__name__ == '__main__'):
             print(f'file does not exit: {shortcut}')
     
     #### RUNNING 
+    
+    # PERSONAL DATA
+    from my_scripts import my_env
+    env = 'Multiplications'
+    path_env = my_env(env)
+    
     """
     delete_from(desktop_path)
     delete_from(testing_path)
