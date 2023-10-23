@@ -341,7 +341,7 @@ if (__name__ == '__main__'):
     #### RUNNING
 
     """
-    delete_from(desktop_path)
+    # delete_from(desktop_path) # for playing
     delete_from(testing_path)
     delete_from(sharing_path)
     del_installations()
@@ -364,9 +364,13 @@ if (__name__ == '__main__'):
         to_zip = os.path.join(path, 'dist')
         shutil.make_archive(c('name'), 'zip',  to_zip)
 
-        # To desktop
+        # To testing
         copy_zip_to(testing_path)
         unpacking_zip(testing_path)
+        
+        # To desktop for playing
+        copy_zip_to(desktop_path)
+        unpacking_zip(desktop_path)
 
         # For sharing
         copy_zip_to(dst = 'GameSharing')
