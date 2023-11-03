@@ -43,7 +43,8 @@ If you use pipenv to manage your virtual environments, you can install requireme
 ## Instructions
  
 1. Clone or download the code into your computer.
-2. To start the game, run the Main.py script. 
+2. To start the game, run the Main.py script.
+   
 	a. If you are running the script from you python editor, set the folder where the Main.py file is located as your working directory 
 
 ---- 
@@ -56,7 +57,7 @@ Some parts of the code in this game are very much influenced by the code of Irv 
 ## Assets 
 - Avatar monsters are designed by <a href="https://www.freepik.com/free-vector/set-colorful-monsters_1988053.htm#query=set-colorful-monsters&position=41&from_view=search&track=sph">Freepik</a>
 - Avatar animals are  <a href="https://www.freepik.com/free-vector/cartoon-animals-icon-set_1488201.htm#page=2&query=Katemangostar%20animals%20icon&position=40&from_view=search&track=ais">designed by katemangostar</a> on Freepik
-- All the other assets for buttons are designed by me using [Inkscape](https://inkscape.org/)
+- All the other assets such as buttons were designed by me using [Inkscape](https://inkscape.org/)
 
 
 [^1]: Kalb, I. (2022). Object-Oriented Python: Master OOP by Building Games and GUIs. United States: No Starch Press.
