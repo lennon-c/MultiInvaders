@@ -12,7 +12,10 @@ A game for practicing multiplication tables ([Screenshots](Documentation/GameInf
 
 If you are using Windows, you can download the game without the need of installing python in your computer. 
 
-You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) and follow the [Installation instructions.](Documentation/InstallInfo.png)
+You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) or from the lastest realease in GitHub [here.](releases/download/v1.0.0/MultiInvaders.zip)  
+
+
+and follow the [Installation instructions.](Documentation/InstallInfo.png)
 
 ![Installation instructions.](Documentation/InstallInfo.svg)
 
@@ -27,6 +30,7 @@ If you use pipenv to manage your virtual environments, you can install requireme
 
 > [!NOTE]
 > **Main packages:**
+> 
 > *For running the game:*
 > - pygame 
 > - lorem-text (to create random text for testing text sizes)
