@@ -23,7 +23,7 @@ You can download the zip file with the game from [dropbox here](https://www.drop
 
 Make sure that you have installed the required packages listed in [requirements.txt](Documentation/Requirements/requirements.txt)
 
-If you use pipenv to manage your virtual environments, you can install requirements using the following [Pipfile](Documentation/Requirements/Pipfile.txt)
+If you use pipenv to manage your virtual environments, you can install requirements using the following [Pipfile](Documentation/Requirements/Pipfile)
 
 > [!NOTE]
 > **Main packages:**
