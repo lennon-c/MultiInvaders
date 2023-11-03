@@ -12,7 +12,7 @@ A game for practicing multiplication tables ([Screenshots](Documentation/GameInf
 
 If you are using Windows, you can download the game without the need of installing python in your computer. 
 
-You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) or from the lastest realease in GitHub [here.](/releases/latest/download/MultiInvaders.zip)  
+You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) or from the lastest realease in GitHub [here.](https://github.com/lennon-c/MultiInvaders/releases/latest/download/MultiInvaders.zip)
 
 
 and follow the [Installation instructions.](Documentation/InstallInfo.png)
