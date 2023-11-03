@@ -3,27 +3,27 @@
 
 # Multi-invaders 
 
-A game for practicing multiplication tables ([Screenshots](GameInfo.png))
+A game for practicing multiplication tables ([Screenshots](Documentation/GameInfo.png))
 
-![[GameInfo.svg]]
+![Screenshots](Documentation/GameInfo.png)
 
 ----- 
 # Game program
 
 If you are using Windows, you can download the game without the need of installing python in your computer. 
 
-You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) and follow the [Installation instructions.](InstallInfo.png)
+You can download the zip file with the game from [dropbox here](https://www.dropbox.com/scl/fi/bqdibjbjd9vypn6iwigb4/MultiInvaders.zip?rlkey=a76jmu5bafar8kd3jyffa5mp0&dl=0) and follow the [Installation instructions.](Documentation/InstallInfo.png)
 
-![[InstallInfo.svg]]
+![Installation instructions.](Documentation/InstallInfo.svg)
 
 ----- 
 # Running the game using python 
 
 ## requirements
 
-Make sure that you have installed the required packages listed in [[requirements.txt]]
+Make sure that you have installed the required packages listed in [requirements.txt](Documentation/Requirements/requirements.txt)
 
-If you use pipenv to manage your virtual environments, you can install requirements using the following [[Pipfile]]
+If you use pipenv to manage your virtual environments, you can install requirements using the following [Pipfile](Documentation/Requirements/Pipfile.txt)
 
 > [!NOTE]
 > **Main packages:**
